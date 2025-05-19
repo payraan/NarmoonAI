@@ -61,6 +61,7 @@ TERMS_AND_CONDITIONS = """
 
 # محتوای بخش محصولات نارموون
 NARMOON_PRODUCTS = """
+
 🌟 **محصولات نارموون** 🌟
 
 ۱. **نارموون دکس (رایگان): **
@@ -77,6 +78,7 @@ NARMOON_PRODUCTS = """
 
 # محتوای بخش قابلیت‌های دستیار هوش مصنوعی
 AI_ASSISTANT_FEATURES = """
+
 🧠 **قابلیت‌های دستیار هوش مصنوعی نارموون** 🧠
 
 🔹 **تحلیل تکنیکال پیشرفته**
@@ -112,6 +114,7 @@ AI_ASSISTANT_FEATURES = """
 
 # محتوای بخش سوالات متداول
 FAQ_CONTENT = """
+
 ❓ **سوالات متداول** ❓
 
 ۱- نارموون دقیقاً چیه و چه کاری برام انجام می‌ده؟
@@ -138,7 +141,7 @@ FAQ_CONTENT = """
 بله. نارموون به‌صورت پیوسته بروزرسانی می‌شه. اگه قطعی یا تغییرات مهم باشه، از طریق کانال رسمی اطلاع‌رسانی می‌کنیم.
 
 ۸- آیا استفاده از نارموون پیچیده‌ست؟
-اصلاً! رابط کاربری نارموون ساده، تمیز و برای همه قابل استفاده‌ست — حتی اگه تازه وارد مارکت باشی.
+اصلاً! رابط کاربری نارموون ساده، تمیز و برای همه قابل استفاده‌ست --- حتی اگه تازه وارد مارکت باشی.
 
 ۹-آیا امکان دسترسی به اطلاعات آنچین BTC و ETH هست؟
 بله. نارموون کوین می‌تونه آنچین بیتکوین و اتریوم، همچنین رفتار نهنگ‌ها، ورودی‌ها به صرافی‌ها و ذخایر شرکت‌ها رو تحلیل کنه.
@@ -151,23 +154,59 @@ FAQ_CONTENT = """
 NARMOON_DEX_LINK = "https://chatgpt.com/g/g-681e61f1baa88191bf50a82156694a79-narmoon-dex"
 NARMOON_COIN_LINK = "https://chatgpt.com/g/g-681e68b8ccf08191b5e53b91b4f09c6e-narmoon-coin"
 
-# گزینه‌های تایم‌فریم و بالاتر
-TIMEFRAMES = ["۱ دقیقه", "۵ دقیقه", "۱۵ دقیقه", "۱ ساعته", "۴ ساعته", "روزانه", "هفتگی"]
-HIGHER_TIMEFRAMES = {
-    "۱ دقیقه": ["۵ دقیقه", "۱۵ دقیقه", "۱ ساعته"],
-    "۵ دقیقه": ["۱۵ دقیقه", "۱ ساعته", "۴ ساعته"],
-    "۱۵ دقیقه": ["۱ ساعته", "۴ ساعته", "روزانه"],
-    "۱ ساعته": ["۴ ساعته", "روزانه", "هفتگی"],
-    "۴ ساعته": ["روزانه", "هفتگی", "ماهانه"],
-    "روزانه": ["هفتگی", "ماهانه", "سالانه"],
-    "هفتگی": ["ماهانه", "سالانه", "ده‌ساله"],
+# === بازارها ===
+MARKETS = {
+    'crypto': '🔗 رمزارزها (کریپتوکارنسی)',
+    'forex': '💱 فارکس (جفت ارزها)',
+    'gold': '🥇 طلا',
+    'international_stocks': '📈 سهام خارجی',
+    'iranian_stocks': '📊 سهام ایران'
 }
 
-# وضعیت‌های ConversationHandler
-MAIN_MENU, SELECTING_TIMEFRAME, WAITING_IMAGES = range(3)
+# === تایم فریم‌ها ===
+TIMEFRAMES = ["۱ دقیقه", "۵ دقیقه", "۱۵ دقیقه", "۱ ساعته", "۴ ساعته", "روزانه", "هفتگی"]
 
-# دستورالعمل تحلیل
-VISION_PROMPT = """
+# تغییر در EXPECTED_TIMEFRAMES - حالا شامل خود تایم فریم انتخابی هم می‌شود
+EXPECTED_TIMEFRAMES = {
+    "۱ دقیقه": ["۱ دقیقه", "۵ دقیقه", "۱۵ دقیقه"],
+    "۵ دقیقه": ["۵ دقیقه", "۱۵ دقیقه", "۱ ساعته"],
+    "۱۵ دقیقه": ["۱۵ دقیقه", "۱ ساعته", "۴ ساعته"],
+    "۱ ساعته": ["۱ ساعته", "۴ ساعته", "روزانه"],
+    "۴ ساعته": ["۴ ساعته", "روزانه", "هفتگی"],
+    "روزانه": ["روزانه", "هفتگی", "ماهانه"],
+    "هفتگی": ["هفتگی", "ماهانه", "سالانه"],
+}
+
+# === استراتژی‌های معاملاتی ===
+STRATEGIES = {
+    # دسته اول: استراتژی های شخصی
+    'narmoon_ai': '🤖 استراتژی شخصی هوش مصنوعی نارموون',
+    
+    # دسته دوم: اسکالپینگ
+    'ema_scalping': '⚡ اسکالپینگ با EMA',
+    'rsi_scalping': '📊 اسکالپینگ با RSI',
+    'squeeze_momentum': '💥 اسکوییز مومنتوم (شتاب ناگهانی)',
+    'volatility_breakout': '🔥 شکست نوسان (Volatility Breakout)',
+    'breakout_retest': '🔄 پولبک به شکست (Breakout Retest)',
+    'mean_reversion': '⚖️ بازگشت به میانگین (Mean Reversion)',
+    
+    # دسته سوم: سوئینگ
+    'momentum_swing': '🚀 مومنتوم سوئینگ (نوسان با شتاب)',
+    'trend_following': '📈 دنبال‌کننده روند (Trend Following)',
+    'trend_reversal': '🔀 برگشت روند (Trend Reversal)',
+    'divergence_play': '📉 معامله بر اساس واگرایی (Divergence Play)',
+    'continuation_pattern': '🔁 الگوی ادامه‌دهنده (Continuation Pattern)',
+    'range_bound': '📏 معامله در محدوده رنج (Range Bound)',
+    
+    # دسته چهارم: پیشرفته
+    'triple_confluence': '🎯 همگرایی سه‌گانه (Triple Confluence)',
+    'pullback_retracement': '↩️ اصلاح پولبک (Pullback Retracement)',
+    'liquidity_sweep': '🌊 لیکوئیدیتی سویپ (جارو یا شکار نقدینگی)'
+}
+
+# === پرامپت‌های اختصاصی برای هر استراتژی ===
+STRATEGY_PROMPTS = {
+    'narmoon_ai': """
 تصویر نمودار را با تمرکز روی سطوح حمایت/مقاومت و سطوح عرضه/تقاضا تحلیل کن:
 
 ۱. پردازش اولیه:
@@ -209,7 +248,6 @@ VISION_PROMPT = """
 - رنج: نوسان بین [محدوده حمایت] و [محدوده مقاومت]
 
 ۷. سیگنال‌های معاملاتی (فقط با R/R حداقل ۱:۳):
-
 **نوع ۱ - برگشت از حمایت:**
 - شرایط: واکنش مثبت در محدوده حمایت قوی + تأیید کندل/حجم
 - ورود: در [محدوده حمایت دقیق]
@@ -244,13 +282,277 @@ VISION_PROMPT = """
 - فقط محدوده‌ها [X.XXX - X.XXX] نه سطوح دقیق
 - بدون استفاده از فیبوناچی
 - سیگنال فقط با R/R حداقل ۱:۳
-- استاپ جایی که شکستش تغییر کامل روند دهد  
+- استاپ جایی که شکستش تغییر کامل روند دهد
 - هر سیگنال حداقل ۲ تارگت داشته باشد
 - تمرکز روی قدرت و کیفیت محدوده‌ها
 - استفاده از واگرایی RSI در صورت وجود در تصویر
-"""
+""",
 
-# توابع پایگاه داده
+    'ema_scalping': """
+نمودار پیوست‌شده را با استراتژی اسکالپینگ EMA تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز را شناسایی کن
+• روند کلی هر تایم‌فریم: صعودی/نزولی/رنج
+• وضعیت EMAهای کلیدی (مثلاً EMA 9/21/50) و کراس‌ها را بررسی کن
+
+سناریوهای احتمالی:
+- صعودی: شرط شکست مقاومت [سطح/محدوده]، اهداف محتمل
+- نزولی: شرط شکست حمایت [سطح/محدوده]، اهداف محتمل
+- رنج: نوسان بین حمایت و مقاومت
+
+• مناطق ورود بر اساس کراس یا پولبک
+• سیگنال پیشنهادی فقط اگر R/R ≥ ۱:۳ باشد (ورود، حد ضرر، تارگت)
+• اگر ستاپ معتبر نیست، دلیل را بنویس
+• تحلیل را خلاصه و بولت‌پوینت ارائه بده؛ اگر داده کافی نیست، درخواست توضیح کن.
+""",
+
+    'rsi_scalping': """
+نمودار را با استراتژی اسکالپینگ RSI تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز را شناسایی کن
+• روند کلی هر تایم‌فریم: صعودی/نزولی/رنج
+• مقدار RSI و موقعیت آن (اشباع خرید/فروش) را بنویس
+• واگرایی/همگرایی‌های RSI و قیمت
+
+سناریوهای احتمالی:
+- صعودی: شکست مقاومت و خروج RSI از اشباع فروش
+- نزولی: شکست حمایت و خروج RSI از اشباع خرید
+- رنج: نوسان بین دو سطح کلیدی
+
+• سیگنال پیشنهادی فقط با R/R ≥ ۱:۳
+• در صورت نبود ستاپ، علت را بنویس
+• تحلیل را خلاصه و مرحله‌به‌مرحله؛ در صورت کمبود داده، توضیح بیشتر بخواه.
+""",
+
+    'squeeze_momentum': """
+لطفاً نمودار را طبق استراتژی اسکوییز مومنتوم تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز را شناسایی کن
+• روند کلی هر تایم‌فریم: صعودی/نزولی/رنج
+• فاز فشردگی و شروع موج انفجار را مشخص کن
+
+سناریوهای احتمالی:
+- صعودی: شکست مقاومت و خروج از Squeeze
+- نزولی: شکست حمایت و ریزش پس از Squeeze
+- رنج: باقی‌ماندن قیمت در محدوده
+
+• سیگنال ورود، حد ضرر و تارگت فقط با R/R ≥ ۱:۳
+• اگر ستاپ کامل نبود، دلیل را بنویس
+• تحلیل را خلاصه و بولت‌پوینت؛ اگر کافی نبود، توضیح بیشتر بخواه.
+""",
+
+    'volatility_breakout': """
+نمودار را با استراتژی شکست نوسانی تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز را شناسایی کن
+• روند کلی هر تایم‌فریم: صعودی/نزولی/رنج
+• وضعیت فعلی نوسان و محدوده‌های کلیدی
+
+سناریوهای احتمالی:
+- صعودی: شکست مقاومت و ورود به روند صعودی
+- نزولی: شکست حمایت و ریزش
+- رنج: نوسان بین سطوح کلیدی
+
+• سیگنال ورود، SL و TP فقط اگر R/R ≥ ۱:۳
+• در نبود ستاپ معتبر، علت را بنویس
+• تحلیل را خلاصه و استاندارد.
+""",
+
+    'breakout_retest': """
+نمودار را با استراتژی Breakout Retest تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز را شناسایی کن
+• روند کلی هر تایم‌فریم: صعودی/نزولی/رنج
+• سطح شکسته‌شده و رفتار قیمت پس از آن
+
+سناریوهای احتمالی:
+- صعودی: پولبک به مقاومت شکسته و ادامه صعود
+- نزولی: پولبک به حمایت شکسته و ادامه نزول
+- رنج: برگشت‌های سریع قیمت
+
+• سیگنال ورود روی پولبک، SL و TP با R/R ≥ ۱:۳
+• اگر ستاپ نیست، علت را بنویس
+• تحلیل بولت‌پوینت و خلاصه.
+""",
+
+    'mean_reversion': """
+نمودار را طبق استراتژی بازگشت به میانگین تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز را شناسایی کن
+• روند کلی هر تایم‌فریم
+• فاصله قیمت با میانگین و سیگنال بازگشت
+
+سناریوهای احتمالی:
+- صعودی: بازگشت از کف به میانگین
+- نزولی: بازگشت از سقف به میانگین
+- رنج: نوسان اطراف میانگین
+
+• سیگنال ورود، SL و TP با R/R ≥ ۱:۳
+• در نبود شرایط، دلیل را بنویس
+• تحلیل خلاصه و بولت‌پوینت.
+""",
+
+    'momentum_swing': """
+نمودار را با استراتژی Momentum Swing تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• روند هر تایم‌فریم
+• نقاط شروع و پایان موج‌های شتاب
+
+سناریوهای احتمالی:
+- صعودی: ادامه حرکت با شتاب
+- نزولی: ریزش شتاب‌دار
+- رنج: تضعیف شتاب و ورود به اصلاح
+
+• سیگنال با R/R ≥ ۱:۳
+• در نبود ستاپ، علت را توضیح بده
+• تحلیل مرحله‌به‌مرحله.
+""",
+
+    'trend_following': """
+نمودار را با استراتژی دنبال‌کننده روند تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• روند کلی هر تایم‌فریم
+• نقاط ورود روی پولبک یا شکست
+
+سناریوهای احتمالی:
+- صعودی: ادامه روند پس از اصلاح
+- نزولی: ریزش پیوسته
+- رنج: آماده‌سازی برای شکست
+
+• سیگنال فقط با R/R ≥ ۱:۳
+• در صورت نبود ستاپ، دلیل را بنویس
+• تحلیل گام‌به‌گام و خلاصه.
+""",
+
+    'trend_reversal': """
+نمودار را با استراتژی برگشت روند تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• روند کلی هر تایم‌فریم
+• نشانه‌های بازگشت (واگرایی، کندل خاص، الگوی کلاسیک)
+
+سناریوهای احتمالی:
+- صعودی: پایان روند نزولی و آغاز صعود
+- نزولی: پایان صعود و شروع نزول
+- رنج: ورود قیمت به فاز بی‌تصمیمی
+
+• سیگنال پیشنهادی با R/R ≥ ۱:۳
+• در نبود ستاپ، علت را بنویس
+• تحلیل خلاصه و مرحله‌ای.
+""",
+
+    'divergence_play': """
+نمودار را با محوریت واگرایی تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• روند کلی
+• واگرایی معمولی/مخفی بین قیمت و اندیکاتور
+
+سناریوهای احتمالی:
+- صعودی: واگرایی مثبت، احتمال رشد
+- نزولی: واگرایی منفی، احتمال ریزش
+- رنج: نبود سیگنال
+
+• سیگنال با R/R ≥ ۱:۳
+• در صورت نبود ستاپ، علت را بنویس
+• تحلیل مرحله‌ای و مختصر.
+""",
+
+    'continuation_pattern': """
+نمودار را با استراتژی الگوی ادامه‌دهنده تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• روند هر تایم‌فریم
+• الگوی ادامه‌دهنده (تشخیص و اعتبارسنجی)
+
+سناریوهای احتمالی:
+- صعودی: شکست بالای الگو و ادامه صعود
+- نزولی: شکست پایین الگو و ادامه نزول
+- رنج: تثبیت در الگو
+
+• سیگنال با R/R ≥ ۱:۳
+• در صورت نبود شرایط، علت را بنویس
+• تحلیل خلاصه و مرحله‌ای.
+""",
+
+    'range_bound': """
+نمودار را با استراتژی رنج تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• محدوده رنج، سقف و کف
+
+سناریوهای احتمالی:
+- صعودی: شکست سقف رنج
+- نزولی: شکست کف رنج
+- رنج: نوسان بین دو محدوده
+
+• سیگنال معاملاتی فقط با R/R ≥ ۱:۳
+• اگر ستاپ نیست، علت را بنویس
+• تحلیل مرحله‌به‌مرحله و بولت‌پوینت.
+""",
+
+    'triple_confluence': """
+نمودار را با استراتژی همگرایی سه‌گانه تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• هر سه عامل تأییدکننده جهت بازار (خط روند، حمایت/مقاومت، اندیکاتور)
+
+سناریوهای احتمالی:
+- صعودی: تلاقی عوامل مثبت
+- نزولی: تلاقی عوامل منفی
+- رنج: نبود همگرایی
+
+• سیگنال ورود با R/R ≥ ۱:۳
+• اگر شرایط فراهم نیست، علت را بنویس
+• تحلیل مرحله‌ای و خلاصه.
+""",
+
+    'pullback_retracement': """
+نمودار را با استراتژی اصلاح پولبک تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• روند اصلی
+• سطح اصلاح (فیبوناچی، حمایت/مقاومت، EMA)
+
+سناریوهای احتمالی:
+- صعودی: پایان اصلاح و شروع رشد
+- نزولی: پایان اصلاح و شروع ریزش
+- رنج: اصلاح بدون جهت
+
+• سیگنال ورود با R/R ≥ ۱:۳
+• اگر ستاپ نیست، علت را بنویس
+• تحلیل مرحله‌ای و بولت‌پوینت.
+""",
+
+    'liquidity_sweep': """
+نمودار را با استراتژی لیکوئیدیتی سویپ تحلیل کن:
+
+• تایم‌فریم‌ها و جفت ارز
+• مناطق انباشت نقدینگی (لو/های کلیدی)
+• رفتار قیمت هنگام شکار نقدینگی (فیک‌بریک، کندل تیز)
+
+سناریوهای احتمالی:
+- صعودی: برگشت سریع پس از شکار نقدینگی کف
+- نزولی: برگشت سریع پس از شکار نقدینگی سقف
+- رنج: جارو در هر دو سمت
+
+• سیگنال ورود با R/R ≥ ۱:۳
+• اگر شرایط مهیا نیست، علت را بنویس
+• تحلیل مرحله‌ای و خلاصه.
+"""
+}
+
+# وضعیت‌های ConversationHandler - آپدیت شده
+MAIN_MENU = 0
+SELECTING_MARKET = 1  # جدید
+SELECTING_TIMEFRAME = 2
+SELECTING_STRATEGY = 3  # جدید
+WAITING_IMAGES = 4
+PROCESSING_ANALYSIS = 5  # جدید
+
+# توابع پایگاه داده (بدون تغییر)
 def init_db():
     """ایجاد پایگاه داده و جداول مورد نیاز"""
     conn = sqlite3.connect('bot_database.db')
@@ -258,28 +560,28 @@ def init_db():
     
     # ایجاد جدول کاربران
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS users (
-        user_id INTEGER PRIMARY KEY,
-        username TEXT,
-        subscription_end DATE,
-        subscription_type TEXT,
-        is_active BOOLEAN DEFAULT 0
-    )
+        CREATE TABLE IF NOT EXISTS users (
+            user_id INTEGER PRIMARY KEY,
+            username TEXT,
+            subscription_end DATE,
+            subscription_type TEXT,
+            is_active BOOLEAN DEFAULT 0
+        )
     ''')
     
     # ایجاد جدول تراکنش‌ها
     cursor.execute('''
-    CREATE TABLE IF NOT EXISTS transactions (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_id INTEGER,
-        txid TEXT,
-        wallet_address TEXT,
-        amount REAL,
-        subscription_type TEXT,
-        status TEXT DEFAULT 'pending',
-        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        FOREIGN KEY (user_id) REFERENCES users (user_id)
-    )
+        CREATE TABLE IF NOT EXISTS transactions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER,
+            txid TEXT,
+            wallet_address TEXT,
+            amount REAL,
+            subscription_type TEXT,
+            status TEXT DEFAULT 'pending',
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            FOREIGN KEY (user_id) REFERENCES users (user_id)
+        )
     ''')
     
     conn.commit()
@@ -420,8 +722,8 @@ async def handle_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
         # بررسی وضعیت اشتراک کاربر
         user_id = update.effective_user.id
         if check_subscription(user_id):
-            # اگر اشتراک فعال دارد، به منوی تایم‌فریم‌ها برود
-            return await show_timeframes(update, context)
+            # اگر اشتراک فعال دارد، به انتخاب بازار برود
+            return await show_market_selection(update, context)
         else:
             # اگر اشتراک ندارد، پیام خطا و پیشنهاد خرید نمایش داده شود
             subscription_buttons = [
@@ -467,6 +769,64 @@ async def handle_main_menu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     
     return MAIN_MENU
 
+# === توابع جدید برای ورژن آپدیت شده ===
+
+async def show_market_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """نمایش لیست بازارها برای انتخاب"""
+    market_buttons = []
+    
+    # اضافه کردن دکمه‌های بازار
+    for market_key, market_name in MARKETS.items():
+        market_buttons.append([
+            InlineKeyboardButton(market_name, callback_data=f"market_{market_key}")
+        ])
+    
+    # دکمه بازگشت
+    market_buttons.append([
+        InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="main_menu")
+    ])
+    
+    market_markup = InlineKeyboardMarkup(market_buttons)
+    
+    await update.callback_query.edit_message_text(
+        "🎯 لطفاً بازار مورد نظر خود را انتخاب کنید:",
+        reply_markup=market_markup
+    )
+    
+    return SELECTING_MARKET
+
+async def handle_market_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """مدیریت انتخاب بازار"""
+    query = update.callback_query
+    await query.answer()
+    
+    # استخراج کلید بازار انتخابی
+    market_key = query.data.replace("market_", "")
+    context.user_data['selected_market'] = market_key
+    
+    # انتقال به انتخاب تایم فریم
+    return await show_timeframes(update, context)
+
+async def show_timeframes(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """نمایش لیست تایم‌فریم‌ها برای انتخاب"""
+    timeframe_buttons = []
+    for tf in TIMEFRAMES:
+        timeframe_buttons.append([InlineKeyboardButton(tf, callback_data=f"tf_{tf}")])
+    
+    timeframe_buttons.append([InlineKeyboardButton("🔙 بازگشت به انتخاب بازار", callback_data="analyze_charts")])
+    timeframe_markup = InlineKeyboardMarkup(timeframe_buttons)
+    
+    # نمایش بازار انتخابی
+    selected_market = context.user_data.get('selected_market', 'نامشخص')
+    market_name = MARKETS.get(selected_market, 'نامشخص')
+    
+    await update.callback_query.edit_message_text(
+        f"📊 بازار انتخابی: {market_name}\n\n⏰ لطفاً تایم‌فریم مورد نظر خود را انتخاب کنید:",
+        reply_markup=timeframe_markup
+    )
+    
+    return SELECTING_TIMEFRAME
+
 async def handle_timeframe_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """مدیریت انتخاب تایم‌فریم"""
     query = update.callback_query
@@ -474,18 +834,221 @@ async def handle_timeframe_selection(update: Update, context: ContextTypes.DEFAU
     
     selected_tf = query.data.replace("tf_", "")
     context.user_data['selected_timeframe'] = selected_tf
-    context.user_data['expected_frames'] = HIGHER_TIMEFRAMES[selected_tf]
+    context.user_data['expected_frames'] = EXPECTED_TIMEFRAMES[selected_tf]
     context.user_data['received_images'] = []
-    tf_list = ", ".join(HIGHER_TIMEFRAMES[selected_tf])
+    
+    # انتقال به انتخاب استراتژی
+    return await show_strategy_selection(update, context)
+
+async def show_strategy_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """نمایش لیست استراتژی‌های معاملاتی"""
+    strategy_buttons = []
+    
+    # دسته‌بندی استراتژی‌ها
+    strategy_categories = {
+        'شخصی': ['narmoon_ai'],
+        'اسکالپینگ': ['ema_scalping', 'rsi_scalping', 'squeeze_momentum', 'volatility_breakout', 'breakout_retest', 'mean_reversion'],
+        'سوئینگ': ['momentum_swing', 'trend_following', 'trend_reversal', 'divergence_play', 'continuation_pattern', 'range_bound'],
+        'پیشرفته': ['triple_confluence', 'pullback_retracement', 'liquidity_sweep']
+    }
+    
+    # افزودن هدر برای هر دسته
+    for category, strategies in strategy_categories.items():
+        # هدر دسته
+        strategy_buttons.append([InlineKeyboardButton(f"═══ {category} ═══", callback_data="ignore")])
+        
+        # استراتژی‌های دسته
+        for strategy_key in strategies:
+            strategy_name = STRATEGIES[strategy_key]
+            strategy_buttons.append([
+                InlineKeyboardButton(strategy_name, callback_data=f"strategy_{strategy_key}")
+            ])
+        
+        # خط جداکننده
+        strategy_buttons.append([InlineKeyboardButton("───────────", callback_data="ignore")])
+    
+    # حذف آخرین خط جداکننده
+    strategy_buttons.pop()
+    
+    # دکمه بازگشت
+    strategy_buttons.append([InlineKeyboardButton("🔙 بازگشت به انتخاب تایم‌فریم", callback_data="analyze_charts")])
+    
+    strategy_markup = InlineKeyboardMarkup(strategy_buttons)
+    
+    # نمایش اطلاعات انتخاب‌های قبلی
+    selected_market = context.user_data.get('selected_market', 'نامشخص')
+    selected_timeframe = context.user_data.get('selected_timeframe', 'نامشخص')
+    market_name = MARKETS.get(selected_market, 'نامشخص')
+    
+    await update.callback_query.edit_message_text(
+        f"📊 بازار: {market_name}\n⏰ تایم‌فریم: {selected_timeframe}\n\n🎯 لطفاً استراتژی معاملاتی مورد نظر خود را انتخاب کنید:",
+        reply_markup=strategy_markup
+    )
+    
+    return SELECTING_STRATEGY
+
+async def handle_strategy_selection(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """مدیریت انتخاب استراتژی"""
+    query = update.callback_query
+    await query.answer()
+    
+    # نادیده گیری کلیک‌های روی هدرها و خط‌های جداکننده
+    if query.data == "ignore":
+        return SELECTING_STRATEGY
+    
+    strategy_key = query.data.replace("strategy_", "")
+    context.user_data['selected_strategy'] = strategy_key
+    context.user_data['strategy_prompt'] = STRATEGY_PROMPTS[strategy_key]
+    
+    # نمایش پیام برای ارسال تصاویر
+    selected_market = context.user_data.get('selected_market', 'نامشخص')
+    selected_timeframe = context.user_data.get('selected_timeframe', 'نامشخص')
+    selected_strategy_name = STRATEGIES.get(strategy_key, 'نامشخص')
+    market_name = MARKETS.get(selected_market, 'نامشخص')
+    expected_frames = context.user_data['expected_frames']
+    tf_list = " - ".join(expected_frames)
     
     await query.edit_message_text(
-        f"عالیه! 👏 حالا لطفاً **۳ اسکرین‌شات** از چارت {tf_list} رو (در هر فرمتی) یکی‌یکی ارسال کن 📸\n\nبرای لغو تحلیل، دستور /cancel را بفرست.",
+        f"✅ **انتخاب‌های شما:**\n"
+        f"📊 بازار: {market_name}\n"
+        f"⏰ تایم‌فریم: {selected_timeframe}\n"
+        f"🎯 استراتژی: {selected_strategy_name}\n\n"
+        f"📸 **مرحله نهایی:** لطفاً **۳ اسکرین‌شات** از نمودار در تایم‌فریم‌های زیر ارسال کنید:\n\n"
+        f"🔹 {tf_list}\n\n"
+        f"💡 برای لغو تحلیل، دستور /cancel را بفرست.",
         parse_mode='Markdown'
     )
     
     return WAITING_IMAGES
 
-# توابع منوها و بخش‌ها
+async def receive_images(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """دریافت تصاویر چارت از کاربر"""
+    # بررسی اشتراک کاربر
+    user_id = update.effective_user.id
+    if not check_subscription(user_id):
+        subscription_buttons = [
+            [InlineKeyboardButton("💳 خرید اشتراک", callback_data="subscription")],
+            [InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="main_menu")]
+        ]
+        await update.message.reply_text(
+            "⚠️ اشتراک شما منقضی شده یا فعال نیست. لطفاً اشتراک خود را تمدید کنید.",
+            reply_markup=InlineKeyboardMarkup(subscription_buttons)
+        )
+        return MAIN_MENU
+    
+    file = None
+    ext = "jpeg"
+    
+    # پشتیبانی از عکس یا داکیومنت عکس
+    if update.message.photo:
+        file = await update.message.photo[-1].get_file()
+    elif update.message.document and update.message.document.mime_type.startswith('image/'):
+        file = await update.message.document.get_file()
+        ext = update.message.document.mime_type.split('/')[-1]
+    else:
+        await update.message.reply_text("فقط عکس ارسال کن رفیق! 😅")
+        return WAITING_IMAGES
+    
+    photo_bytes = await file.download_as_bytearray()
+    context.user_data['received_images'].append((photo_bytes, ext))
+    
+    received = len(context.user_data['received_images'])
+    expected = 3
+    
+    if received < expected:
+        await update.message.reply_text(f"عالی! {expected-received} عکس دیگه از تایم‌فریم‌های بعدی رو بفرست 🤩")
+        return WAITING_IMAGES
+    
+    # وقتی هر سه عکس رسید...
+    await update.message.reply_text("🔥 در حال تحلیل نمودارها با استراتژی انتخابی شما... ⏳")
+    
+    # آماده‌سازی عکس‌ها برای openai vision
+    images_content = []
+    for img_bytes, ext in context.user_data['received_images']:
+        # تعیین mime type
+        if ext in ["jpeg", "jpg"]:
+            mime = "jpeg"
+        elif ext == "png":
+            mime = "png"
+        elif ext == "webp":
+            mime = "webp"
+        else:
+            mime = "jpeg"
+        
+        b64img = base64.b64encode(img_bytes).decode('utf-8')
+        images_content.append({
+            "type": "image_url", 
+            "image_url": {
+                "url": f"data:image/{mime};base64,{b64img}", 
+                "detail": "high"
+            }
+        })
+    
+    # استفاده از پرامپت اختصاصی استراتژی انتخابی
+    strategy_prompt = context.user_data.get('strategy_prompt', STRATEGY_PROMPTS['narmoon_ai'])
+    
+    # پیامی با چند تصویر
+    messages = [
+        {
+            "role": "user",
+            "content": [
+                {"type": "text", "text": strategy_prompt}
+            ] + images_content
+        }
+    ]
+    
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=messages,
+            max_tokens=1300,
+            temperature=0.2
+        )
+        result = response.choices[0].message.content
+        
+        # دکمه بازگشت به منوی اصلی
+        menu_button = InlineKeyboardMarkup([[InlineKeyboardButton("🏠 منوی اصلی", callback_data="main_menu")]])
+        
+        # نمایش خلاصه انتخاب‌ها و نتیجه
+        selected_market = context.user_data.get('selected_market', 'نامشخص')
+        selected_timeframe = context.user_data.get('selected_timeframe', 'نامشخص')
+        selected_strategy = context.user_data.get('selected_strategy', 'نامشخص')
+        market_name = MARKETS.get(selected_market, 'نامشخص')
+        strategy_name = STRATEGIES.get(selected_strategy, 'نامشخص')
+        
+        summary = f"📊 **تحلیل شخصی‌سازی شده نارموون**\n\n"
+        summary += f"🎯 **بازار:** {market_name}\n"
+        summary += f"⏰ **تایم‌فریم:** {selected_timeframe}\n"
+        summary += f"🔧 **استراتژی:** {strategy_name}\n"
+        summary += f"{'═' * 30}\n\n"
+        
+        await update.message.reply_text(
+            summary + result,
+            reply_markup=menu_button,
+            parse_mode='Markdown'
+        )
+        
+    except Exception as e:
+        await update.message.reply_text(f"❌ خطا در تحلیل! دوباره تلاش کن یا /start رو بزن.\n{str(e)}")
+    
+    context.user_data.clear()
+    return MAIN_MENU
+
+async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """لغو عملیات جاری و بازگشت به منوی اصلی"""
+    context.user_data.clear()
+    
+    # دکمه بازگشت به منوی اصلی
+    menu_button = InlineKeyboardMarkup([[InlineKeyboardButton("🏠 منوی اصلی", callback_data="main_menu")]])
+    
+    await update.message.reply_text(
+        "عملیات لغو شد. می‌توانید به منوی اصلی بازگردید.",
+        reply_markup=menu_button
+    )
+    return MAIN_MENU
+
+# === توابع منوها و بخش‌ها (بدون تغییر) ===
+
 async def show_narmoon_products(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """نمایش محصولات نارموون"""
     products_buttons = [
@@ -541,6 +1104,7 @@ async def show_faq(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def usage_guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """نمایش راهنمای استفاده از ربات"""
     guide_text = f"""
+
 📚 راهنمای استفاده از ربات تحلیل چارت
 
 برای آشنایی کامل با نحوه استفاده از ربات، لطفاً ویدیوی آموزشی زیر را مشاهده کنید:
@@ -548,18 +1112,29 @@ async def usage_guide(update: Update, context: ContextTypes.DEFAULT_TYPE):
 🎬 [مشاهده ویدیوی آموزشی]({TUTORIAL_VIDEO_LINK})
 
 راهنمای سریع:
+
 1️⃣ ابتدا اشتراک خود را از بخش «خرید اشتراک» تهیه کنید
+
 2️⃣ بعد از پرداخت، TXID را به پشتیبان ارسال کنید
+
 3️⃣ پس از تأیید، می‌توانید از بخش «تحلیل نمودارها» استفاده کنید
-4️⃣ تایم‌فریم مورد نظر را انتخاب کرده و سه تصویر از چارت در تایم‌فریم‌های مختلف ارسال کنید
-5️⃣ تحلیل کامل را دریافت کنید
+
+4️⃣ بازار مورد نظر خود را انتخاب کنید (رمزارز، فارکس، طلا، سهام)
+
+5️⃣ تایم‌فریم مورد نظر را انتخاب کرده 
+
+6️⃣ استراتژی معاملاتی خود را انتخاب کنید
+
+7️⃣ سه تصویر از چارت در تایم‌فریم‌های مختلف ارسال کنید
+
+8️⃣ تحلیل کامل و شخصی‌سازی‌شده را دریافت کنید
 """
     
     guide_buttons = [[InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="main_menu")]]
     guide_markup = InlineKeyboardMarkup(guide_buttons)
     
     await update.callback_query.edit_message_text(
-        guide_text, 
+        guide_text,
         reply_markup=guide_markup,
         parse_mode='Markdown',
         disable_web_page_preview=False  # اجازه می‌دهد پیش‌نمایش ویدیو نمایش داده شود
@@ -574,7 +1149,7 @@ async def terms_and_conditions(update: Update, context: ContextTypes.DEFAULT_TYP
     terms_markup = InlineKeyboardMarkup(terms_buttons)
     
     await update.callback_query.edit_message_text(
-        TERMS_AND_CONDITIONS, 
+        TERMS_AND_CONDITIONS,
         reply_markup=terms_markup,
         parse_mode='Markdown'
     )
@@ -584,6 +1159,7 @@ async def terms_and_conditions(update: Update, context: ContextTypes.DEFAULT_TYP
 async def subscription_plans(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """نمایش پلن‌های اشتراکی"""
     subscription_text = """
+
 💳 پلن‌های اشتراکی دستیار هوش مصنوعی نارموون
 
 لطفاً یکی از پلن‌های زیر را انتخاب کنید:
@@ -593,8 +1169,10 @@ async def subscription_plans(update: Update, context: ContextTypes.DEFAULT_TYPE)
 💰 **نارموون کوین (رایگان)**: افزونه چت‌جی‌پی‌تی مخصوص تحلیل آلتکوین‌ها
 
 🤖 **نارموون TNT (ویژه Pro)**:
+
 🔹 **ماهانه:** ۱۴،۹۹ دلار برای یک ماه دسترسی کامل به تمام امکانات ربات
-🔹 **سه ماهه (پیشنهاد ویژه):** ۳۹،۹۹ دلار برای سه ماه — معادل ماهی فقط ۱۳،۳۳ دلار! 💡
+
+🔹 **سه ماهه (پیشنهاد ویژه):** ۳۹،۹۹ دلار برای سه ماه --- معادل ماهی فقط ۱۳،۳۳ دلار! 💡
 """
     
     subscription_buttons = [
@@ -610,7 +1188,7 @@ async def subscription_plans(update: Update, context: ContextTypes.DEFAULT_TYPE)
     # اگر callback_query داریم از آن استفاده کنیم، در غیر این صورت مستقیم پیام بفرستیم
     if update.callback_query:
         await update.callback_query.edit_message_text(
-            subscription_text, 
+            subscription_text,
             reply_markup=subscription_markup,
             parse_mode='Markdown'
         )
@@ -636,11 +1214,12 @@ async def show_payment_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         amount = context.user_data['plan_amount']
         
         payment_text = f"""
+
 💎 اطلاعات پرداخت اشتراک {plan}
 
 مبلغ: {amount} دلار
-آدرس کیف پول سولانا:
 
+آدرس کیف پول سولانا:
 <code>{wallet_address}</code>
 
 لطفا پس از پرداخت، با پشتیبان تماس بگیرید و شناسه تراکنش (TXID) را برای فعال‌سازی اشتراک ارسال کنید.
@@ -652,7 +1231,7 @@ async def show_payment_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         payment_markup = InlineKeyboardMarkup(payment_buttons)
         
         await update.callback_query.edit_message_text(
-            payment_text, 
+            payment_text,
             reply_markup=payment_markup,
             parse_mode='HTML'  # استفاده از HTML بجای Markdown
         )
@@ -673,6 +1252,7 @@ async def show_payment_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def support_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """نمایش اطلاعات تماس با پشتیبان"""
     support_text = """
+
 \U0001F468\u200D\U0001F4BB پشتیبانی ربات تحلیل چارت
 
 برای ارتباط با پشتیبان و ارسال TXID پرداخت، لطفاً با آیدی زیر در تلگرام تماس بگیرید:
@@ -683,9 +1263,13 @@ async def support_contact(update: Update, context: ContextTypes.DEFAULT_TYPE):
 https://t.me/Sultan_immortal
 
 \U0001F4DD راهنمای ارسال TXID به پشتیبان:
+
 1. پس از پرداخت، شناسه تراکنش (TXID) را کپی کنید
+
 2. به پشتیبان پیام بدهید و TXID را ارسال کنید
+
 3. آیدی تلگرام خود را هم ذکر کنید
+
 4. پس از تأیید تراکنش، اشتراک شما فعال خواهد شد
 """
     
@@ -694,7 +1278,7 @@ https://t.me/Sultan_immortal
     back_markup = InlineKeyboardMarkup(back_button)
     
     await update.callback_query.edit_message_text(
-        support_text, 
+        support_text,
         reply_markup=back_markup,
         parse_mode='Markdown',
         disable_web_page_preview=True
@@ -702,122 +1286,8 @@ https://t.me/Sultan_immortal
     
     return MAIN_MENU
 
-async def show_timeframes(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """نمایش لیست تایم‌فریم‌ها برای انتخاب"""
-    timeframe_buttons = []
-    for tf in TIMEFRAMES:
-        timeframe_buttons.append([InlineKeyboardButton(tf, callback_data=f"tf_{tf}")])
-    
-    timeframe_buttons.append([InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="main_menu")])
-    timeframe_markup = InlineKeyboardMarkup(timeframe_buttons)
-    
-    await update.callback_query.edit_message_text(
-        "لطفاً تایم‌فریم مورد نظر خود را انتخاب کنید:",
-        reply_markup=timeframe_markup
-    )
-    
-    return SELECTING_TIMEFRAME
+# === دستورات مدیریتی برای ادمین (بدون تغییر) ===
 
-async def receive_images(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """دریافت تصاویر چارت از کاربر"""
-    # بررسی اشتراک کاربر
-    user_id = update.effective_user.id
-    if not check_subscription(user_id):
-        subscription_buttons = [
-            [InlineKeyboardButton("💳 خرید اشتراک", callback_data="subscription")],
-            [InlineKeyboardButton("🔙 بازگشت به منوی اصلی", callback_data="main_menu")]
-        ]
-        await update.message.reply_text(
-            "⚠️ اشتراک شما منقضی شده یا فعال نیست. لطفاً اشتراک خود را تمدید کنید.",
-            reply_markup=InlineKeyboardMarkup(subscription_buttons)
-        )
-        return MAIN_MENU
-    
-    file = None
-    ext = "jpeg"
-    # پشتیبانی از عکس یا داکیومنت عکس
-    if update.message.photo:
-        file = await update.message.photo[-1].get_file()
-    elif update.message.document and update.message.document.mime_type.startswith('image/'):
-        file = await update.message.document.get_file()
-        ext = update.message.document.mime_type.split('/')[-1]
-    else:
-        await update.message.reply_text("فقط عکس ارسال کن رفیق! 😅")
-        return WAITING_IMAGES
-
-    photo_bytes = await file.download_as_bytearray()
-    context.user_data['received_images'].append((photo_bytes, ext))
-
-    received = len(context.user_data['received_images'])
-    expected = 3
-
-    if received < expected:
-        await update.message.reply_text(f"عالی! {expected-received} عکس دیگه از تایم‌فریم‌های بعدی رو بفرست 🤩")
-        return WAITING_IMAGES
-
-    # وقتی هر سه عکس رسید...
-    await update.message.reply_text("در حال تحلیل هر سه چارت... ⏳🔥")
-
-    # آماده‌سازی عکس‌ها برای openai vision
-    images_content = []
-    for img_bytes, ext in context.user_data['received_images']:
-        # تعیین mime type
-        if ext in ["jpeg", "jpg"]:
-            mime = "jpeg"
-        elif ext == "png":
-            mime = "png"
-        elif ext == "webp":
-            mime = "webp"
-        else:
-            mime = "jpeg"
-        b64img = base64.b64encode(img_bytes).decode('utf-8')
-        images_content.append({"type": "image_url", "image_url": {"url": f"data:image/{mime};base64,{b64img}", "detail": "high"}})
-
-    # پیامی با چند تصویر
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {"type": "text", "text": VISION_PROMPT}
-            ] + images_content
-        }
-    ]
-    try:
-        response = client.chat.completions.create(
-            model="gpt-4o",
-            messages=messages,
-            max_tokens=1300,
-            temperature=0.2
-        )
-        result = response.choices[0].message.content
-
-        # دکمه بازگشت به منوی اصلی
-        menu_button = InlineKeyboardMarkup([[InlineKeyboardButton("🏠 منوی اصلی", callback_data="main_menu")]])
-        
-        await update.message.reply_text(
-            "✅ نتیجه تحلیل سه‌تایم‌فریم:\n\n" + result,
-            reply_markup=menu_button
-        )
-    except Exception as e:
-        await update.message.reply_text(f"❌ خطا در تحلیل! دوباره تلاش کن یا /start رو بزن.\n{str(e)}")
-
-    context.user_data.clear()
-    return MAIN_MENU
-
-async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """لغو عملیات جاری و بازگشت به منوی اصلی"""
-    context.user_data.clear()
-    
-    # دکمه بازگشت به منوی اصلی
-    menu_button = InlineKeyboardMarkup([[InlineKeyboardButton("🏠 منوی اصلی", callback_data="main_menu")]])
-    
-    await update.message.reply_text(
-        "عملیات لغو شد. می‌توانید به منوی اصلی بازگردید.",
-        reply_markup=menu_button
-    )
-    return MAIN_MENU
-
-# دستورات مدیریتی برای ادمین
 async def admin_activate(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """فعال‌سازی اشتراک کاربر توسط ادمین (فرمت: /activate user_id duration plan_type)"""
     # بررسی دسترسی ادمین
@@ -861,9 +1331,11 @@ async def admin_help(update: Update, context: ContextTypes.DEFAULT_TYPE):
         return
     
     help_text = """
+
 \U0001F468\u200D\U0001F4BB راهنمای دستورات مدیریتی:
 
 /adminhelp - نمایش این راهنما
+
 /activate user_id duration plan_type - فعال‌سازی اشتراک کاربر
 مثال: /activate 123456789 3 سه_ماهه
 
@@ -902,8 +1374,8 @@ async def admin_user_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         # نمایش اطلاعات کاربر
         user_info = f"""
-👤 اطلاعات کاربر:
 
+👤 اطلاعات کاربر:
 شناسه: {user_data[0]}
 نام کاربری: {user_data[1] or 'نامشخص'}
 تاریخ پایان اشتراک: {user_data[2] or 'ندارد'}
@@ -922,7 +1394,7 @@ async def admin_user_info(update: Update, context: ContextTypes.DEFAULT_TYPE):
         
         conn.close()
         await update.message.reply_text(user_info)
-        
+    
     except Exception as e:
         await update.message.reply_text(f"خطا در دریافت اطلاعات کاربر: {str(e)}")
 
@@ -933,12 +1405,14 @@ def main():
     # ایجاد اپلیکیشن
     app = ApplicationBuilder().token(TELEGRAM_TOKEN).build()
     
-    # تعریف conversation handler اصلی
+    # تعریف conversation handler اصلی - آپدیت شده
     conv_handler = ConversationHandler(
         entry_points=[CommandHandler("start", start)],
         states={
             MAIN_MENU: [CallbackQueryHandler(handle_main_menu)],
+            SELECTING_MARKET: [CallbackQueryHandler(handle_market_selection, pattern='^market_')],
             SELECTING_TIMEFRAME: [CallbackQueryHandler(handle_timeframe_selection, pattern='^tf_')],
+            SELECTING_STRATEGY: [CallbackQueryHandler(handle_strategy_selection, pattern=r'^(strategy_.*|ignore)$')],
             WAITING_IMAGES: [MessageHandler(filters.PHOTO | filters.Document.IMAGE, receive_images)],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
